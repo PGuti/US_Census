@@ -62,9 +62,11 @@ discrete<-function(column,categories=20,method="interval"){
 	tmp = discretize(x, method=method, categories = categories, labels = NULL, onlycuts=FALSE) 
 	tabl = table(train$salary,tmp)
 	return (list(tabl = tabl, normtabl = apply(tabl,1,function(c){c/sum(c)}),chi = chisq.test(tabl)))
-}
+} # enable to better see the queue 
 
 # a few results/remarks
+
+# the pearson chi square is not good. Not to take into account.  
 
 # - univariate(1) age :
 # the univariate function shows that some individuals have age 0 (probably not a missing value)
